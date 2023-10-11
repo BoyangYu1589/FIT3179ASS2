@@ -1,23 +1,31 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "description": "A scatterplot showing body mass and flipper lengths of penguins.",
-    "data": {
-      "url": "https://raw.githubusercontent.com/BoyangYu1589/FIT3179ASS2/main/data/RealEstateAU_1000_Samples%20-%20RealEstateAU_1000_Samples.csv"
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/BoyangYu1589/FIT3179ASS2/main/data/RealEstateAU_1000_Samples%20-%20RealEstateAU_1000_Samples.csv"
+  },
+  "mark": "point",
+  "transform": [
+    {"filter": "datum.preferred_size !== null && datum.preferred_size !== ''"}
+  ],
+  "encoding": {
+    "x": {
+      "field": "preferred_size",
+      "type": "quantitative",
+      "title": "Land Size(m²)"
     },
-    "mark": "point",
-    "encoding": {
-      "x": {
-        "field": "building_size",
-        "type": "quantitative",
-        "scale": {"zero": false}
-      },
-      "y": {
-        "field": "price",
-        "type": "quantitative",
-        "scale": {"zero": false}
-      },
-      "color": {"field": "city", "type": "nominal"},
-      "shape": {"field": "city", "type": "nominal"}
-    }
+    "y": {
+      "field": "price",
+      "type": "quantitative",
+      "title": "Price($)"
+    },
+    "color": {
+      "field": "property_type",
+      "type": "nominal",
+      "title": "Property Type"
+    },
+    "tooltip": [
+      {"field": "preferred_size", "type": "quantitative", "title": "Land Size(m²)"},
+      {"field": "price", "type": "quantitative", "title": "Price($)"}
+    ]
   }
-  
+}
