@@ -1,0 +1,40 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 500,
+    "height": 300,
+    "title": "Australian Housing Prices",
+    "projection": {
+      "type": "mercator",
+    },
+    "layer": [
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/BoyangYu1589/FIT3179ASS2/main/js/output.json",
+          "format": {"type": "topojson", "feature": "UCL_2016_AUST"}
+        },
+        "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
+      },
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/BoyangYu1589/FIT3179ASS2/main/data/RealEstateAU_1000_Samples.csv"
+        },
+        "mark": {"type": "circle", "tooltip": {"content": "data"}},
+        "encoding": {
+          "longitude": {"field": "longitude", "type": "quantitative"},
+          "latitude": {"field": "latitude", "type": "quantitative"},
+          "size": {
+            "field": "land_size",
+            "type": "quantitative",
+            "title": "The size of the property's land, in square meters.",
+            "scale": {"domain": [0, 500]}
+          },
+          "color": {
+            "field": "price",
+            "type": "quantitative",
+            "title": "The listing price of the property",
+            "scale": {"domain": [0, 2000000]}
+          }
+        }
+      }
+    ]
+  }
