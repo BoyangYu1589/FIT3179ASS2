@@ -1,0 +1,26 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "data": {
+      "url": "https://raw.githubusercontent.com/BoyangYu1589/FIT3179ASS2/main/data/RealEstateAU_1000_cleaned.csv"
+    },
+    "transform": [
+      {
+        "filter": "datum.price >= 0"  
+      }
+    ],
+    "mark": {
+      "type": "boxplot",
+      "extent": "min-max"
+    },
+    "encoding": {
+      "x": {"field": "city", "type": "nominal", "title": "City"},
+      "y": {
+        "field": "price",
+        "type": "quantitative",
+        "aggregate": "box-plot",
+        "title": "Price Statistics",
+        "axis": {"title": "Price($)"}
+      }
+    }
+  }
