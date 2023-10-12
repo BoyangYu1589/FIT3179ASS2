@@ -31,7 +31,8 @@
     },
     "tooltip": [
       {"field": "preferred_size", "type": "quantitative", "title": "Land Size(m²)"},
-      {"field": "price", "type": "quantitative", "title": "Price($)"}
+      {"field": "price", "type": "quantitative", "title": "Price($)"},
+      {"field": "property_type", "type": "nominal", "title": "Property_type"}
     ]
   }
 }

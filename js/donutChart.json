@@ -31,7 +31,7 @@
     },
     "encoding": {
       "theta": {"field": "percentage", "type": "quantitative"},
-      "color": {"field": "property_type", "type": "nominal"},
+      "color": {"field": "property_type", "type": "nominal", "title": "Property Type"},
       "tooltip": [
         {"field": "property_type", "type": "nominal", "title": "Property Type"},
         {"field": "percentage", "type": "quantitative", "title": "Percentage", "format": ".1%"}
