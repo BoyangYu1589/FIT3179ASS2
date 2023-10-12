@@ -3,9 +3,12 @@
   "description": "A donut chart showing the percentage of different property types with at least ten occurrences.",
   "background": "white",
   "padding": 5,
-  "width": 300,
+  "width": 250,
   "height": 300,
   "style": "view",
+  "config": {
+    "background": "#DCE2F0" 
+  },
   "data": [
     {
       "name": "source_0",

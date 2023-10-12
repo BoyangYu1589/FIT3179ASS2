@@ -2,6 +2,9 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 300,
   "height": 300,
+  "config": {
+    "background": "#DCE2F0" 
+  },
   "data": {
     "url": "https://raw.githubusercontent.com/BoyangYu1589/FIT3179ASS2/main/data/RealEstateAU_1000_cleaned.csv"
   },

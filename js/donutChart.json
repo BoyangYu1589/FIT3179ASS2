@@ -1,7 +1,10 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 600,
+    "width": 250,
     "height": 300,
+    "config": {
+      "background": "#DCE2F0" 
+    },
     "description": "A donut chart showing the percentage of different property types with at least ten occurrences.",
     "data": {
       "url": "https://raw.githubusercontent.com/BoyangYu1589/FIT3179ASS2/main/data/RealEstateAU_1000_cleaned.csv"
