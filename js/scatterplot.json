@@ -1,17 +1,65 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 300,
-  "height": 300,
+  "width": 800,
+  "height": 600,
   "config": {
     "background": "#DCE2F0" 
   },
   "data": {
     "url": "https://raw.githubusercontent.com/BoyangYu1589/FIT3179ASS2/main/data/RealEstateAU_1000_cleaned.csv"
   },
+  "params": [
+    {
+      "name": "Price_Above",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 2000000,
+        "step": 10000,
+        "name": "Minimum Price: "
+      }
+    },
+    {
+      "name": "Type_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Apartment",
+          "Block Of Units",
+          "Duplex/Semi-detached",
+          "House",
+          "Residential Land",
+          "Studio",
+          "Townhouse",
+          "Unit",
+          "villa"
+        ],
+        "labels": [
+          "Show All",
+          "Apartment",
+          "Block Of Units",
+          "Duplex/Semi-detached",
+          "House",
+          "Residential Land",
+          "Studio",
+          "Townhouse",
+          "Unit",
+          "villa"
+        ],
+        "name": "Type Selection: "
+      }
+    }
+  ],
   "mark": "point",
   "transform": [
     {"filter": "datum.preferred_size !== null && datum.preferred_size !== ''"},
-    {"filter": "datum.price !== null && datum.price !== ''"}  
+    {"filter": "datum.price !== null && datum.price !== ''"},
+    {"filter": "datum.price > Price_Above"},
+    {
+      "filter": "Type_selection == null || datum.property_type == Type_selection"
+    }
   ],
   "encoding": {
     "x": {
@@ -32,7 +80,7 @@
     "tooltip": [
       {"field": "preferred_size", "type": "quantitative", "title": "Land Size(m²)"},
       {"field": "price", "type": "quantitative", "title": "Price($)"},
-      {"field": "property_type", "type": "nominal", "title": "Property_type"}
+      {"field": "property_type", "type": "nominal", "title": "Property type"}
     ]
   }
 }
