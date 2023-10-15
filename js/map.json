@@ -5,12 +5,12 @@
   "height": 400,
   "projection": {"type": "mercator"},
   "data": {
-    "url": "https://raw.githubusercontent.com/BoyangYu1589/FIT3179ASS2/main/js/SA3_2016_AUST.json",
-    "format": {"type": "topojson", "feature": "SA3_2016_AUST"}
+    "url": "https://raw.githubusercontent.com/BoyangYu1589/FIT3179ASS2/main/js/MB_2016_NT.json",
+    "format": {"type": "topojson", "feature": "MB_2016_NT"}
   },
   "transform": [
     {
-      "lookup": "properties.SA4_NAME16",
+      "lookup": "properties.SA3_NAME16",
       "from": {
         "data": {
           "url": "https://raw.githubusercontent.com/BoyangYu1589/FIT3179ASS2/main/data/RealEstateAU_1000_cleaned.csv"
@@ -29,7 +29,7 @@
       "scale": {"type": "log"}
     },
     "tooltip": [
-      {"field": "properties.SA4_NAME16", "type": "nominal", "title": "city"},
+      {"field": "properties.SA3_NAME16", "type": "nominal", "title": "city"},
       {"field": "Average Price", "type": "quantitative"}  
     ]
   }
