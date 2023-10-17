@@ -1,8 +1,11 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Average estate prices in Australian cities",
-  "width": 800,
+  "title": "Average estate prices in Australian NT state cities",
+  "width": 450,
   "height": 400,
+  "config": {
+    "background": "#f5f0e1" 
+  },
   "projection": {"type": "mercator"},
   "data": {
     "url": "https://raw.githubusercontent.com/BoyangYu1589/FIT3179ASS2/main/js/MB_2016_NT.json",
@@ -18,19 +21,33 @@
         "key": "city",
         "fields": ["average_price"]
       }
+    },
+    {"calculate": "datum.average_price + 0.1", "as": "adjusted_average_price"},
+    {
+      "calculate": "datum.adjusted_average_price === 0.1 ? 'No data' : datum.adjusted_average_price",
+      "as": "tooltip_adjusted_average_price"
     }
-    
   ],
   "mark": {"type": "geoshape"},
   "encoding": {
     "color": {
-      "field": "average_price",
+      "field": "adjusted_average_price",
       "type": "quantitative",
-      "scale": {"type": "sqrt"}
+      "title": "Average Price",
+      "scale": {"type": "sqrt"},
+      "condition": {
+        "test": "datum.adjusted_average_price === 0.1",
+        "value": "gray"
+      }
     },
     "tooltip": [
       {"field": "properties.SA2_NAME16", "type": "nominal", "title": "city"},
-      {"field": "average_price", "type": "quantitative"}  
+      {
+        "field": "tooltip_adjusted_average_price",
+        "type": "quantitative",
+        "title": "Average Price"
+      }
     ]
   }
+  
 }
