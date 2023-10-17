@@ -25,7 +25,11 @@
       "field": "average_price",
       "type": "quantitative",
       "title": "Average Price"
-    }
+    },
+    "tooltip": [
+      { "field": "parking_count", "type": "ordinal", "title": "Parking Count" },
+      { "field": "average_price", "type": "quantitative", "title": "Average Price" }
+    ]
   }
   
 }

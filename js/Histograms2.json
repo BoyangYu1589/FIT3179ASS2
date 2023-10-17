@@ -25,7 +25,12 @@
       "field": "average_price",
       "type": "quantitative",
       "title": "Average Price"
-    }
+    },
+    "tooltip": [
+      { "field": "bathroom_count", "type": "ordinal", "title": "Bathroom Count" },
+      { "field": "average_price", "type": "quantitative", "title": "Average Price" }
+    ]
   }
+  
   
 }

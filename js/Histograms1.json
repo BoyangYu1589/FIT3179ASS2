@@ -6,11 +6,11 @@
     "url": "https://raw.githubusercontent.com/BoyangYu1589/FIT3179ASS2/main/data/RealEstateAU_1000_cleaned.csv"
   },
   "config": {
-    "background": "#f5f0e1" 
+    "background": "#f5f0e1"
   },
   "transform": [
     {
-      "aggregate": [{"op": "mean", "field": "price", "as": "average_price"}],
+      "aggregate": [{ "op": "mean", "field": "price", "as": "average_price" }],
       "groupby": ["bedroom_count"]
     }
   ],
@@ -25,7 +25,10 @@
       "field": "average_price",
       "type": "quantitative",
       "title": "Average Price"
-    }
+    },
+    "tooltip": [
+      { "field": "bedroom_count", "type": "ordinal", "title": "Bedroom Count" },
+      { "field": "average_price", "type": "quantitative", "title": "Average Price" }
+    ]
   }
-  
 }
